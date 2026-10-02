@@ -19,6 +19,13 @@ MODEL_PATH = BASE_DIR / "aqi_random_forest_pipeline.pkl"
 
 @st.cache_data
 def load_data():
+    if not DATA_PATH.exists():
+        st.error(
+            "Dataset not found. "
+            "Please place INDIA_AQI_COMPLETE_20251126.csv "
+            "in the application directory."
+        )
+        st.stop()
 
     # df = pd.read_csv(DATA_PATH)
 
@@ -157,6 +164,13 @@ def load_data():
 
 @st.cache_resource
 def load_model():
+    if not MODEL_PATH.exists():
+        st.error(
+            "Trained model not found. "
+            "Please place aqi_random_forest_pipeline.pkl "
+            "in the application directory."
+        )
+        st.stop()
 
     return joblib.load(
         MODEL_PATH
