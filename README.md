@@ -64,3 +64,17 @@ R²: 0.763
 
 ```bash
 pip install -r requirements.txt
+```
+## Running File
+```bash
+streamlit run app.py
+```
+or
+```bash
+py -m streamlit run app.py
+```
+
+
+This app requires Data and Model:
+- INDIA_AQI_COMPLETE_20251126.csv
+- aqi_random_forest_pipeline.pkl
